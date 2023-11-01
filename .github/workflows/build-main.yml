@@ -20,6 +20,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         git config --global user.email "marcell.gimesi@gmail.com"
         git config --global user.name "marcellgim"
