@@ -57,11 +57,12 @@
         events.shift();
         events.sort((a, b) => Number(a.date) - Number(b.date));
 
-        const currentDate = new Date();
-        currentDate.setHours(0, 0, 0, 0);
-        const eightWeeksFromNow = new Date(currentDate);
-        eightWeeksFromNow.setDate(currentDate.getDate() + 7 * 8);
-        const filteredData = events.filter(obj => obj.date >= currentDate && obj.date <= eightWeeksFromNow);
+        const monday = new Date();
+        monday.setDate(monday.getDate() - (monday.getDay() === 0 ? 6 : monday.getDay() - 1));
+        monday.setHours(0, 0, 0, 0);
+        const eightWeeksFromMonday = new Date(monday);
+        eightWeeksFromMonday.setDate(monday.getDate() + 7 * 8);
+        const filteredData = events.filter(obj => obj.date >= monday && obj.date <= eightWeeksFromMonday);
         extractMonths(filteredData);
 
         return filteredData;

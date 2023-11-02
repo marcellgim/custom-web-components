@@ -9,11 +9,6 @@ export default defineConfig({
             name: "Custom Web Components",
             formats: ['es']
         },
-        rollupOptions: {
-            output: {
-                intro: '// Made by me'
-            }
-        }
     },
     plugins: [
         svelte({
