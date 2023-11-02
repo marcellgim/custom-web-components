@@ -1,7 +1,7 @@
 var St = Object.defineProperty;
 var At = (e, t, n) => t in e ? St(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var y = (e, t, n) => (At(e, typeof t != "symbol" ? t + "" : t, n), n);
-function m() {
+function b() {
 }
 function Pt(e, t) {
   for (const n in t)
@@ -82,7 +82,7 @@ function $(e, t) {
 function xt(e, t, n) {
   const s = Ut(e);
   if (!s.getElementById(t)) {
-    const r = _("style");
+    const r = m("style");
     r.id = t, r.textContent = n, Tt(s, r);
   }
 }
@@ -113,17 +113,17 @@ function jt(e, t) {
   for (let n = 0; n < e.length; n += 1)
     e[n] && e[n].d(t);
 }
-function _(e) {
+function m(e) {
   return document.createElement(e);
 }
-function N(e) {
+function L(e) {
   return document.createTextNode(e);
 }
 function S() {
-  return N(" ");
+  return L(" ");
 }
 function Ct() {
-  return N("");
+  return L("");
 }
 function p(e, t, n) {
   n == null ? e.removeAttribute(t) : e.getAttribute(t) !== n && e.setAttribute(t, n);
@@ -223,7 +223,7 @@ function st() {
 function w(e, t) {
   e && e.i && (V.delete(e), e.i(t));
 }
-function L(e, t, n, s) {
+function D(e, t, n, s) {
   if (e && e.o) {
     if (V.has(e))
       return;
@@ -244,7 +244,7 @@ function Qt(e, t) {
     const a = r && (t.current = r)(i);
     let f = !1;
     t.block && (t.blocks ? t.blocks.forEach((d, u) => {
-      u !== c && d && (nt(), L(d, 1, 1, () => {
+      u !== c && d && (nt(), D(d, 1, 1, () => {
         t.blocks[u] === d && (t.blocks[u] = null);
       }), st());
     }) : t.block.d(1), a.c(), w(a, 1), a.m(t.mount(), t.anchor), f = !0), t.block = a, t.blocks && (t.blocks[c] = a), f && P();
@@ -300,7 +300,7 @@ function lt(e, t, n, s, r, c, o = null, l = [-1]) {
     ctx: [],
     // state
     props: c,
-    update: m,
+    update: b,
     not_equal: r,
     bound: dt(),
     // lifecycle
@@ -319,8 +319,8 @@ function lt(e, t, n, s, r, c, o = null, l = [-1]) {
   o && o(a.root);
   let f = !1;
   if (a.ctx = n ? n(e, t.props || {}, (d, u, ...h) => {
-    const b = h.length ? h[0] : u;
-    return a.ctx && r(a.ctx[d], a.ctx[d] = b) && (!a.skip_bound && a.bound[d] && a.bound[d](b), f && Yt(e, d)), u;
+    const _ = h.length ? h[0] : u;
+    return a.ctx && r(a.ctx[d], a.ctx[d] = _) && (!a.skip_bound && a.bound[d] && a.bound[d](_), f && Yt(e, d)), u;
   }) : [], a.update(), f = !0, T(a.before_update), a.fragment = s ? s(a.ctx) : !1, t.target) {
     if (t.hydrate) {
       const d = Ht(t.target);
@@ -331,8 +331,8 @@ function lt(e, t, n, s, r, c, o = null, l = [-1]) {
   }
   E(i);
 }
-let Lt;
-typeof HTMLElement == "function" && (Lt = class extends HTMLElement {
+let Dt;
+typeof HTMLElement == "function" && (Dt = class extends HTMLElement {
   constructor(t, n, s) {
     super();
     /** The Svelte component constructor */
@@ -375,7 +375,7 @@ typeof HTMLElement == "function" && (Lt = class extends HTMLElement {
           let l;
           return {
             c: function() {
-              l = _("slot"), o !== "default" && p(l, "name", o);
+              l = m("slot"), o !== "default" && p(l, "name", o);
             },
             /**
              * @param {HTMLElement} target
@@ -481,7 +481,7 @@ function W(e, t, n, s) {
     }
 }
 function ct(e, t, n, s, r, c) {
-  let o = class extends Lt {
+  let o = class extends Dt {
     constructor() {
       super(e, n, r), this.$$p_d = t;
     }
@@ -532,7 +532,7 @@ class it {
   }
   /** @returns {void} */
   $destroy() {
-    ot(this, 1), this.$destroy = m;
+    ot(this, 1), this.$destroy = b;
   }
   /**
    * @template {Extract<keyof Events, string>} K
@@ -542,7 +542,7 @@ class it {
    */
   $on(t, n) {
     if (!wt(n))
-      return m;
+      return b;
     const s = this.$$.callbacks[t] || (this.$$.callbacks[t] = []);
     return s.push(n), () => {
       const r = s.indexOf(n);
@@ -569,10 +569,10 @@ function ee(e) {
   ), c, o, l, i = (
     /*eventObj*/
     e[0].date.getDate() + ""
-  ), a, f, d, u, h, b, M, j, g, C = (
+  ), a, f, d, u, h, _, M, j, g, C = (
     /*eventObj*/
     e[0].origin.toUpperCase() + ""
-  ), z, ut, D, H = (
+  ), z, ut, N, H = (
     /*eventObj*/
     e[0].series + ""
   ), Q, at, I = (
@@ -581,13 +581,13 @@ function ee(e) {
   ), X, ft, q;
   return {
     c() {
-      t = _("div"), n = _("div"), s = _("span"), c = N(r), o = S(), l = _("span"), a = N(i), f = S(), d = _("div"), u = _("img"), M = S(), j = _("div"), g = _("span"), z = N(C), ut = S(), D = _("span"), Q = N(H), at = S(), X = N(I), ft = N(". rész"), p(s, "class", "month svelte-12ap2pr"), p(l, "class", "date svelte-12ap2pr"), p(n, "class", "date-display svelte-12ap2pr"), ht(u.src, h = /*eventObj*/
-      e[0].image) || p(u, "src", h), p(u, "alt", b = /*eventObj*/
-      e[0].series), p(u, "referrerpolicy", "no-referrer"), p(u, "class", "svelte-12ap2pr"), p(d, "class", "event-image svelte-12ap2pr"), p(g, "class", "origin svelte-12ap2pr"), p(D, "class", "title svelte-12ap2pr"), p(j, "class", "event-description svelte-12ap2pr"), p(t, "class", "event-card svelte-12ap2pr"), p(t, "style", q = `background-color: var(--${/*eventObj*/
+      t = m("div"), n = m("div"), s = m("span"), c = L(r), o = S(), l = m("span"), a = L(i), f = S(), d = m("div"), u = m("img"), M = S(), j = m("div"), g = m("span"), z = L(C), ut = S(), N = m("span"), Q = L(H), at = S(), X = L(I), ft = L(". rész"), p(s, "class", "month svelte-12ap2pr"), p(l, "class", "date svelte-12ap2pr"), p(n, "class", "date-display svelte-12ap2pr"), ht(u.src, h = /*eventObj*/
+      e[0].image) || p(u, "src", h), p(u, "alt", _ = /*eventObj*/
+      e[0].series), p(u, "referrerpolicy", "no-referrer"), p(u, "class", "svelte-12ap2pr"), p(d, "class", "event-image svelte-12ap2pr"), p(g, "class", "origin svelte-12ap2pr"), p(N, "class", "title svelte-12ap2pr"), p(j, "class", "event-description svelte-12ap2pr"), p(t, "class", "event-card svelte-12ap2pr"), p(t, "style", q = `background-color: var(--${/*eventObj*/
       e[0].origin.toLocaleLowerCase("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g, "-")})`);
     },
     m(v, k) {
-      O(v, t, k), $(t, n), $(n, s), $(s, c), $(n, o), $(n, l), $(l, a), $(t, f), $(t, d), $(d, u), $(t, M), $(t, j), $(j, g), $(g, z), $(j, ut), $(j, D), $(D, Q), $(D, at), $(D, X), $(D, ft);
+      O(v, t, k), $(t, n), $(n, s), $(s, c), $(n, o), $(n, l), $(l, a), $(t, f), $(t, d), $(d, u), $(t, M), $(t, j), $(j, g), $(g, z), $(j, ut), $(j, N), $(N, Q), $(N, at), $(N, X), $(N, ft);
     },
     p(v, [k]) {
       k & /*eventObj*/
@@ -597,8 +597,8 @@ function ee(e) {
       v[0].date.getDate() + "") && R(a, i), k & /*eventObj*/
       1 && !ht(u.src, h = /*eventObj*/
       v[0].image) && p(u, "src", h), k & /*eventObj*/
-      1 && b !== (b = /*eventObj*/
-      v[0].series) && p(u, "alt", b), k & /*eventObj*/
+      1 && _ !== (_ = /*eventObj*/
+      v[0].series) && p(u, "alt", _), k & /*eventObj*/
       1 && C !== (C = /*eventObj*/
       v[0].origin.toUpperCase() + "") && R(z, C), k & /*eventObj*/
       1 && H !== (H = /*eventObj*/
@@ -608,8 +608,8 @@ function ee(e) {
       1 && q !== (q = `background-color: var(--${/*eventObj*/
       v[0].origin.toLocaleLowerCase("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g, "-")})`) && p(t, "style", q);
     },
-    i: m,
-    o: m,
+    i: b,
+    o: b,
     d(v) {
       v && x(t);
     }
@@ -621,7 +621,7 @@ function ne(e, t, n) {
     "eventObj" in r && n(0, s = r.eventObj);
   }, [s];
 }
-class Nt extends it {
+class Lt extends it {
   constructor(t) {
     super(), lt(this, t, ne, ee, et, { eventObj: 0 }, te);
   }
@@ -632,7 +632,7 @@ class Nt extends it {
     this.$$set({ eventObj: t }), P();
   }
 }
-ct(Nt, { eventObj: {} }, [], [], !0);
+ct(Lt, { eventObj: {} }, [], [], !0);
 function se(e) {
   let t, n;
   const s = (
@@ -647,7 +647,7 @@ function se(e) {
   );
   return {
     c() {
-      t = _("div"), r && r.c(), $t(
+      t = m("div"), r && r.c(), $t(
         t,
         "font-family",
         /*fontLoaded*/
@@ -690,7 +690,7 @@ function se(e) {
       n || (w(r, c), n = !0);
     },
     o(c) {
-      L(r, c), n = !1;
+      D(r, c), n = !1;
     },
     d(c) {
       c && x(t), r && r.d(c);
@@ -713,7 +713,7 @@ function re(e, t, n) {
     "font" in l && n(0, c = l.font), "$$scope" in l && n(2, r = l.$$scope);
   }, [c, o, r, s];
 }
-class Dt extends it {
+class Nt extends it {
   constructor(t) {
     super(), lt(this, t, re, se, et, { font: 0 });
   }
@@ -724,7 +724,7 @@ class Dt extends it {
     this.$$set({ font: t }), P();
   }
 }
-ct(Dt, { font: {} }, ["default"], [], !0);
+ct(Nt, { font: {} }, ["default"], [], !0);
 function oe(e) {
   xt(e, "svelte-f3agui", ".calendar-items.svelte-f3agui{display:flex;flex-wrap:wrap;gap:20px}");
 }
@@ -738,17 +738,17 @@ function mt(e, t, n) {
 }
 function le(e) {
   return {
-    c: m,
-    m,
-    p: m,
-    i: m,
-    o: m,
-    d: m
+    c: b,
+    m: b,
+    p: b,
+    i: b,
+    o: b,
+    d: b
   };
 }
 function ce(e) {
   let t, n;
-  return t = new Dt({
+  return t = new Nt({
     props: {
       font: "Dosis",
       $$slots: { default: [ie] },
@@ -770,7 +770,7 @@ function ce(e) {
       n || (w(t.$$.fragment, s), n = !0);
     },
     o(s) {
-      L(t.$$.fragment, s), n = !1;
+      D(t.$$.fragment, s), n = !1;
     },
     d(s) {
       ot(t, s);
@@ -779,7 +779,7 @@ function ce(e) {
 }
 function bt(e) {
   let t, n;
-  return t = new Nt({
+  return t = new Lt({
     props: { eventObj: (
       /*eventObj*/
       e[13]
@@ -791,12 +791,12 @@ function bt(e) {
     m(s, r) {
       rt(t, s, r), n = !0;
     },
-    p: m,
+    p: b,
     i(s) {
       n || (w(t.$$.fragment, s), n = !0);
     },
     o(s) {
-      L(t.$$.fragment, s), n = !1;
+      D(t.$$.fragment, s), n = !1;
     },
     d(s) {
       ot(t, s);
@@ -821,13 +821,13 @@ function vt(e) {
   ), i = [];
   for (let f = 0; f < l.length; f += 1)
     i[f] = bt(mt(e, l, f));
-  const a = (f) => L(i[f], 1, 1, () => {
+  const a = (f) => D(i[f], 1, 1, () => {
     i[f] = null;
   });
   return {
     c() {
-      t = _("h2"), t.textContent = `${/*month*/
-      e[10]}`, n = S(), s = _("div");
+      t = m("h2"), t.textContent = `${/*month*/
+      e[10]}`, n = S(), s = m("div");
       for (let f = 0; f < i.length; f += 1)
         i[f].c();
       r = S(), p(s, "class", "calendar-items svelte-f3agui");
@@ -865,7 +865,7 @@ function vt(e) {
     o(f) {
       i = i.filter(Boolean);
       for (let d = 0; d < i.length; d += 1)
-        L(i[d]);
+        D(i[d]);
       c = !1;
     },
     d(f) {
@@ -880,7 +880,7 @@ function ie(e) {
   ), r = [];
   for (let o = 0; o < s.length; o += 1)
     r[o] = vt(_t(e, s, o));
-  const c = (o) => L(r[o], 1, 1, () => {
+  const c = (o) => D(r[o], 1, 1, () => {
     r[o] = null;
   });
   return {
@@ -921,7 +921,7 @@ function ie(e) {
     o(o) {
       r = r.filter(Boolean);
       for (let l = 0; l < r.length; l += 1)
-        L(r[l]);
+        D(r[l]);
       n = !1;
     },
     d(o) {
@@ -933,14 +933,14 @@ function ue(e) {
   let t;
   return {
     c() {
-      t = _("p"), t.textContent = "Loading...";
+      t = m("p"), t.textContent = "Loading...";
     },
     m(n, s) {
       O(n, t, s);
     },
-    p: m,
-    i: m,
-    o: m,
+    p: b,
+    i: b,
+    o: b,
     d(n) {
       n && x(t);
     }
@@ -978,7 +978,7 @@ function ae(e) {
     o(r) {
       for (let c = 0; c < 3; c += 1) {
         const o = s.blocks[c];
-        L(o);
+        D(o);
       }
       n = !1;
     },
@@ -1028,11 +1028,11 @@ function de(e, t, n) {
       };
     });
     h.shift(), h.sort((g, C) => Number(g.date) - Number(C.date));
-    const b = /* @__PURE__ */ new Date();
-    b.setHours(0, 0, 0, 0);
-    const M = new Date(b);
-    M.setDate(b.getDate() + 7 * 8);
-    const j = h.filter((g) => g.date >= b && g.date <= M);
+    const _ = /* @__PURE__ */ new Date();
+    _.setDate(_.getDate() - (_.getDay() === 0 ? 6 : _.getDay() - 1)), _.setHours(0, 0, 0, 0);
+    const M = new Date(_);
+    M.setDate(_.getDate() + 7 * 8);
+    const j = h.filter((g) => g.date >= _ && g.date <= M);
     return f(j), j;
   }
   function f(u) {
